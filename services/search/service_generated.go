@@ -132,7 +132,7 @@ func (s *Service) CreateJob(searchJob SearchJob, resp ...*http.Response) (*Searc
 	if err != nil {
 		fmt.Println("error reading response body: ", err)
 	}
-	fmt.Println("response body: \n", b)
+	fmt.Println("response body: \n", string(b))
 	err = util.ParseResponse(&rb, response)
 	return &rb, err
 }
