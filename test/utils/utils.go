@@ -24,10 +24,10 @@ import (
 	"runtime"
 	"time"
 
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/idp"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/sdk"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services"
 	"github.com/joho/godotenv"
-	"github.com/splunk/splunk-cloud-sdk-go/idp"
-	"github.com/splunk/splunk-cloud-sdk-go/sdk"
-	"github.com/splunk/splunk-cloud-sdk-go/services"
 )
 
 // GetFilename uses reflection to get current filename
@@ -99,7 +99,7 @@ var TestTimeOut = time.Second * 30
 // TestTimeOut - the timeout to be used for requests to the api in search tests
 var LongTestTimeout = time.Second * 600
 
-//Region which correlates to the tenant, used to formulate tenant scoped hostnames
+// Region which correlates to the tenant, used to formulate tenant scoped hostnames
 var TestRegion string
 
 // PKCE

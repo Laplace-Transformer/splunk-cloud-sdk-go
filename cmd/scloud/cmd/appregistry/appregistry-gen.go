@@ -5,7 +5,7 @@ package appregistry
 
 import (
 	"github.com/spf13/cobra"
-	impl "github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/pkg/appregistry"
+	impl "github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/pkg/appregistry"
 )
 
 // createAppNativeApp -- Creates an app.

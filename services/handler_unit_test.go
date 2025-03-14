@@ -24,9 +24,9 @@ import (
 	"syscall"
 	"testing"
 
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/idp"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/util"
 	"github.com/splunk/go-dependencies/services"
-	"github.com/splunk/splunk-cloud-sdk-go/idp"
-	"github.com/splunk/splunk-cloud-sdk-go/util"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

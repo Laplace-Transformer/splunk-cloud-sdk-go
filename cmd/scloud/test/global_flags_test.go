@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	utils "github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/test/utils"
+	utils "github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/test/utils"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -72,7 +72,7 @@ func Test_global_flag_invalid_env(t *testing.T) {
 	assert.Equal(t, true, success)
 }
 
-//ToDO: Needs investigation, runs successfully locally but not in CI
+// ToDO: Needs investigation, runs successfully locally but not in CI
 func Test_global_flag_incorrect_env(t *testing.T) {
 	command := "identity list-groups --env " + utils.Env2
 	searchString := "no such host"

@@ -3,8 +3,8 @@ package ml
 ////go:generate scloudgen gen-cmd --name ml --package ml --output ml-gen.go | gofmt
 
 import (
+	usageUtil "github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/util"
 	"github.com/spf13/cobra"
-	usageUtil "github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/util"
 )
 
 // Cmd -- used to connection to rootCmd

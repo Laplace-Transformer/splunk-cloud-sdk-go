@@ -17,8 +17,8 @@
 package idp
 
 import (
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/util"
 	"github.com/pkg/errors"
-	"github.com/splunk/splunk-cloud-sdk-go/util"
 )
 
 const (
@@ -70,7 +70,7 @@ type RefreshTokenRetriever struct {
 	RefreshToken *util.Credential
 }
 
-//Host config
+// Host config
 type HostURLConfig struct {
 	//Tenant name
 	Tenant string
@@ -81,8 +81,9 @@ type HostURLConfig struct {
 }
 
 // NewRefreshTokenRetriever initializes a new token context retriever
-//   idpURL: should be of the form https://example.com or optionally https://example.com:port
-//     - if "" is specified then SplunkCloudIdpURL will be used.
+//
+//	idpURL: should be of the form https://example.com or optionally https://example.com:port
+//	  - if "" is specified then SplunkCloudIdpURL will be used.
 func NewRefreshTokenRetriever(clientID string, scope string, refreshToken string, idpHost string, overrideAuthURL string, hostURLConfig HostURLConfig) *RefreshTokenRetriever {
 	return &RefreshTokenRetriever{
 		Client:       makeClient(idpHost, overrideAuthURL, false, hostURLConfig),
@@ -113,8 +114,9 @@ type ClientCredentialsRetriever struct {
 }
 
 // NewClientCredentialsRetriever initializes a new token context retriever
-//   idpURL: should be of the form https://example.com or optionally https://example.com:port
-//     - if "" is specified then SplunkCloudIdpURL will be used.
+//
+//	idpURL: should be of the form https://example.com or optionally https://example.com:port
+//	  - if "" is specified then SplunkCloudIdpURL will be used.
 func NewClientCredentialsRetriever(clientID string, clientSecret string, scope string, idpHost string, overrideAuthURL string, hostURLConfig HostURLConfig) *ClientCredentialsRetriever {
 	return &ClientCredentialsRetriever{
 		Client:       makeClient(idpHost, overrideAuthURL, false, hostURLConfig),
@@ -149,8 +151,9 @@ type PKCERetriever struct {
 }
 
 // NewPKCERetriever initializes a new token context retriever
-//   idpURL: should be of the form https://example.com or optionally https://example.com:port
-//     - if "" is specified then SplunkCloudIdpURL will be used.
+//
+//	idpURL: should be of the form https://example.com or optionally https://example.com:port
+//	  - if "" is specified then SplunkCloudIdpURL will be used.
 func NewPKCERetriever(clientID string, redirectURI string, scope string, username string, password string, idpHost string, overrideAuthURL string, hostURLConfig HostURLConfig) *PKCERetriever {
 	return &PKCERetriever{
 		Client:      makeClient(idpHost, overrideAuthURL, false, hostURLConfig),
@@ -187,8 +190,9 @@ type DeviceFlowRetriever struct {
 }
 
 // NewDeviceFlowRetriever initializes a new token context retriever
-//   idpURL: should be of the form https://example.com or optionally https://example.com:port
-//     - if "" is specified then SplunkCloudIdpURL will be used.
+//
+//	idpURL: should be of the form https://example.com or optionally https://example.com:port
+//	  - if "" is specified then SplunkCloudIdpURL will be used.
 func NewDeviceFlowRetriever(clientID string, idpHost string, overrideAuthURL string, hostURLConfig HostURLConfig) *DeviceFlowRetriever {
 	return &DeviceFlowRetriever{
 		Client:   makeClient(idpHost, overrideAuthURL, false, hostURLConfig),

@@ -5,7 +5,7 @@ package forwarders
 
 import (
 	"github.com/spf13/cobra"
-	impl "github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/pkg/forwarders"
+	impl "github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/pkg/forwarders"
 )
 
 // addCertificate -- Adds a certificate to a vacant slot on a tenant.

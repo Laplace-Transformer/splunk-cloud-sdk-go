@@ -13,7 +13,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/auth"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/auth"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -258,7 +258,7 @@ func getNextTestcase(reader *bufio.Reader) (string, string, string, error) {
 	}
 }
 
-//Set config and Login
+// Set config and Login
 func SetConfigurationAndLogin() (string, error) {
 
 	//Config set username, env, tenant and login
@@ -362,7 +362,7 @@ func Record_test_result(filepath string, testhook_arg string, t *testing.T) {
 	assert.Nil(t, err)
 }
 
-//Execute a global flag test case
+// Execute a global flag test case
 func Execute_cmd_with_global_flags(command string, searchString string, t *testing.T, expectStdErr bool) bool {
 
 	stderr := ""

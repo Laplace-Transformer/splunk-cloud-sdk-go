@@ -28,21 +28,21 @@ import (
 	"strconv"
 	"syscall"
 
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/auth/fcache"
+	cf "github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/cmd/config"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/idp"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/util"
 	"github.com/golang/glog"
 	"github.com/mitchellh/go-homedir"
 	"github.com/pelletier/go-toml"
 	"github.com/rakyll/statik/fs"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
-	"github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/auth/fcache"
-	cf "github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/cmd/config"
-	"github.com/splunk/splunk-cloud-sdk-go/idp"
-	"github.com/splunk/splunk-cloud-sdk-go/util"
 	"golang.org/x/crypto/ssh/terminal"
 	"gopkg.in/yaml.v2"
 
 	// Import needed to register files with fs
-	_ "github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/auth/statik"
+	_ "github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/auth/statik"
 )
 
 const SCloudHome = "SCLOUD_HOME"

@@ -13,12 +13,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/cmd/scloud/version"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/cmd/scloud/version"
 
-	cf "github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/cmd/config"
-	"github.com/splunk/splunk-cloud-sdk-go/sdk"
-	"github.com/splunk/splunk-cloud-sdk-go/services"
-	"github.com/splunk/splunk-cloud-sdk-go/util"
+	cf "github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/cmd/config"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/sdk"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/util"
 )
 
 const (

@@ -5,7 +5,7 @@ package collect
 
 import (
 	"github.com/spf13/cobra"
-	impl "github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/pkg/collect"
+	impl "github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/pkg/collect"
 )
 
 // createExecution -- Creates an execution for a scheduled job based on the job ID.

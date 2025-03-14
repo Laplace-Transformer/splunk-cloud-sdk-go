@@ -10,12 +10,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/splunk/splunk-cloud-sdk-go/services"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services"
 
-	"github.com/splunk/splunk-cloud-sdk-go/sdk"
-	"github.com/splunk/splunk-cloud-sdk-go/services/streams"
-	testutils "github.com/splunk/splunk-cloud-sdk-go/test/utils"
-	"github.com/splunk/splunk-cloud-sdk-go/util"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/sdk"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services/streams"
+	testutils "github.com/Laplace-Transformer/splunk-cloud-sdk-go/test/utils"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/util"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -435,7 +435,7 @@ func TestIntegrationGetRegistry(t *testing.T) {
 	assert.NotEmpty(t, (result.Functions)[0])
 }
 
-//Test Get Latest pipeline metrics endpoint
+// Test Get Latest pipeline metrics endpoint
 func TestIntegrationGetLatestPipelineMetrics(t *testing.T) {
 	t.Skip("TODO: investigate 500 errors")
 	pipelineName := fmt.Sprintf("testPipelinej%d", testutils.RunSuffix)
@@ -491,7 +491,7 @@ func TestIntegrationGetLatestPipelineMetrics(t *testing.T) {
 
 }
 
-//Test Latest Preview Session Metrics
+// Test Latest Preview Session Metrics
 func TestIntegrationGetLatestPreviewSessionMetrics(t *testing.T) {
 	// Create and start a test Ge session
 	response, err := getSdkClient(t).StreamsService.StartPreview(createPreviewSessionStartRequest(t))
@@ -744,7 +744,7 @@ func TestIntegrationDeleteTemplate(t *testing.T) {
 	assert.Equal(t, "template-id-not-found", httpErr.Code)
 }
 
-//makePipelineRequest is a helper function to make a PipelineRequest model
+// makePipelineRequest is a helper function to make a PipelineRequest model
 func makePipelineRequest(t *testing.T, name string, description string) streams.PipelineRequest {
 	result := createTestSplPipeline(t)
 
@@ -798,7 +798,7 @@ func makeTemplateRequest(t *testing.T, name string, description string) streams.
 	}
 }
 
-//Deletes the test pipeline
+// Deletes the test pipeline
 func cleanupPipeline(client *sdk.Client, id string, name string) {
 	err := client.StreamsService.DeletePipeline(id)
 	if err != nil {

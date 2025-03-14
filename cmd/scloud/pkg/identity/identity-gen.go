@@ -7,10 +7,10 @@ import (
 	"fmt"
 
 	"github.com/spf13/cobra"
-	"github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/auth"
-	"github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/flags"
-	"github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/jsonx"
-	model "github.com/splunk/splunk-cloud-sdk-go/services/identity"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/auth"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/flags"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/jsonx"
+	model "github.com/Laplace-Transformer/splunk-cloud-sdk-go/services/identity"
 )
 
 // AddGroupMember Adds a member to a given group.

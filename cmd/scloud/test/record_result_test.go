@@ -4,7 +4,7 @@ import (
 	"os"
 	"testing"
 
-	test_engine "github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/test/utils"
+	test_engine "github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/test/utils"
 )
 
 // Tests in this file are recording test results. They should only be executed when updating test results

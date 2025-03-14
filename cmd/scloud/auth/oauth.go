@@ -21,8 +21,8 @@ import (
 
 	"github.com/spf13/cobra"
 
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/idp"
 	"github.com/pelletier/go-toml"
-	"github.com/splunk/splunk-cloud-sdk-go/idp"
 )
 
 // Returns the value corresponding to the given key, from the given map.

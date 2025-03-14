@@ -5,7 +5,7 @@ package catalog
 
 import (
 	"github.com/spf13/cobra"
-	impl "github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/pkg/catalog"
+	impl "github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/pkg/catalog"
 )
 
 // createActionForRuleAliasAction -- Creates a new action for the specified rule by rule id or resource name.

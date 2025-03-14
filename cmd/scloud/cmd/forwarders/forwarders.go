@@ -3,8 +3,8 @@ package forwarders
 ////go:generate scloudgen gen-cmd --name forwarders --package forwarders --output forwarders-gen.go
 
 import (
+	usageUtil "github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/util"
 	"github.com/spf13/cobra"
-	usageUtil "github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/util"
 )
 
 // Cmd -- used to connection to rootCmd

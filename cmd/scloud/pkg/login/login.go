@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"regexp"
 
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/auth"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/jsonx"
 	"github.com/spf13/cobra"
-	"github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/auth"
-	"github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/jsonx"
 )
 
 const refreshFlow = "refresh"

@@ -21,11 +21,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/splunk/splunk-cloud-sdk-go/sdk"
-	"github.com/splunk/splunk-cloud-sdk-go/services"
-	"github.com/splunk/splunk-cloud-sdk-go/services/search"
-	testutils "github.com/splunk/splunk-cloud-sdk-go/test/utils"
-	"github.com/splunk/splunk-cloud-sdk-go/util"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/sdk"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services/search"
+	testutils "github.com/Laplace-Transformer/splunk-cloud-sdk-go/test/utils"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/util"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -157,7 +157,7 @@ func TestGetJobResults(t *testing.T) {
 	assert.Equal(t, "name", (*response).Fields[0].Name)
 }
 
-//TestIntegrationNewSearchJobBadRequest asynchronously
+// TestIntegrationNewSearchJobBadRequest asynchronously
 func TestIntegrationNewSearchJobBadRequest(t *testing.T) {
 	client := getClient(t)
 	require.NotNil(t, client)
@@ -170,7 +170,7 @@ func TestIntegrationNewSearchJobBadRequest(t *testing.T) {
 	assert.Equal(t, "400 Bad Request", httpErr.HTTPStatus)
 }
 
-//TestIntegrationGetJobResultsBadSearchID
+// TestIntegrationGetJobResultsBadSearchID
 func TestIntegrationGetJobResultsBadSearchID(t *testing.T) {
 	// id format: [\da-z]{32}_\d{19}_[\da-z]{5}
 	nonexistentSearchID := "nonexistent000000000000000000000_0000000000000000000_000id"
@@ -241,7 +241,7 @@ func TestListTimeBuckets(t *testing.T) {
 	assert.True(t, *(*response).EventCount == 5)
 }
 
-//TestCreateJobConfigurableBackOffRetry and validate that all the job requests are created successfully after retries
+// TestCreateJobConfigurableBackOffRetry and validate that all the job requests are created successfully after retries
 func TestCreateJobConfigurableBackOffRetry(t *testing.T) {
 	config := &services.Config{
 		Token:         testutils.TestAuthenticationToken,
@@ -293,7 +293,7 @@ func TestCreateJobConfigurableBackOffRetry(t *testing.T) {
 	assert.Equal(t, concurrentSearches, cnt)
 }
 
-//TestCreateJobDefaultBackOffRetry and validate that all the job requests are created successfully after retries
+// TestCreateJobDefaultBackOffRetry and validate that all the job requests are created successfully after retries
 func TestCreateJobDefaultBackOffRetry(t *testing.T) {
 	config := &services.Config{
 		Token:         testutils.TestAuthenticationToken,

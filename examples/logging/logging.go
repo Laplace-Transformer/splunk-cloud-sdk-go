@@ -17,10 +17,12 @@
 // This example demonstrates how to setup logging of requests/responses with the sdk using the standard Go "log" library.
 //
 // By default, this example logs to stout (for INFO level logs) and stderr (for ERROR level logs):
-//    ```$ go run -v ./examples/logging/logging.go```
+//
+//	```$ go run -v ./examples/logging/logging.go```
 //
 // To log INFO and ERROR to a single log file use:
-//    ```$ go run -v ./examples/logging/logging.go -logfile=<path to logfile>```
+//
+//	```$ go run -v ./examples/logging/logging.go -logfile=<path to logfile>```
 package main
 
 import (
@@ -29,10 +31,10 @@ import (
 	"log"
 	"os"
 
-	"github.com/splunk/splunk-cloud-sdk-go/services"
-	"github.com/splunk/splunk-cloud-sdk-go/services/identity"
-	testutils "github.com/splunk/splunk-cloud-sdk-go/test/utils"
-	"github.com/splunk/splunk-cloud-sdk-go/util"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services/identity"
+	testutils "github.com/Laplace-Transformer/splunk-cloud-sdk-go/test/utils"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/util"
 )
 
 var logInfo *log.Logger

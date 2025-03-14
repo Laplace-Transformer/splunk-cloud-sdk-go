@@ -24,13 +24,13 @@ import (
 	"sync"
 	"time"
 
-	"github.com/splunk/splunk-cloud-sdk-go/util"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/util"
 )
 
-//UserErrHandler defines the type of user callback function for batchEventSender
+// UserErrHandler defines the type of user callback function for batchEventSender
 type UserErrHandler func(*BatchEventsSender)
 
-//ingestError defines the type of the event payload sent and ingest error incurred
+// ingestError defines the type of the event payload sent and ingest error incurred
 type ingestError struct {
 	Error  error
 	Events []Event
@@ -197,9 +197,9 @@ func (b *BatchEventsSender) flush(flushSource int) {
 
 }
 
-//sendEventInBatches will slice Event Queue into batches.
-//Add events from event queue into a batch until either the batch events counts size is reached or the payload size limit is hit
-//Once the batch is flushed, another batch is initialized with the remaining elements from events queue until either of the two limits are reached
+// sendEventInBatches will slice Event Queue into batches.
+// Add events from event queue into a batch until either the batch events counts size is reached or the payload size limit is hit
+// Once the batch is flushed, another batch is initialized with the remaining elements from events queue until either of the two limits are reached
 func (b *BatchEventsSender) sendEventInBatches(events []Event) {
 	if len(events) <= 0 {
 		return

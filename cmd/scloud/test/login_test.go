@@ -5,15 +5,15 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/auth"
+	cf "github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/cmd/config"
+	utils "github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/test/utils"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/idp"
 	"github.com/spf13/cobra"
-	"github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/auth"
-	cf "github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/cmd/config"
-	utils "github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/test/utils"
-	"github.com/splunk/splunk-cloud-sdk-go/idp"
 	"github.com/stretchr/testify/assert"
 )
 
-//login without username specified should return prompt asking for input of username
+// login without username specified should return prompt asking for input of username
 func TestLoginWithNoUsername(t *testing.T) {
 	tearDown(t)
 

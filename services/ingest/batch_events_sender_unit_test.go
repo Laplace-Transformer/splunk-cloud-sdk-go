@@ -19,7 +19,7 @@ package ingest
 import (
 	"testing"
 
-	"github.com/splunk/splunk-cloud-sdk-go/services"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

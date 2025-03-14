@@ -5,7 +5,7 @@ package kvstore
 
 import (
 	"github.com/spf13/cobra"
-	impl "github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/pkg/kvstore"
+	impl "github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/pkg/kvstore"
 )
 
 // createIndex -- Creates an index on a collection.

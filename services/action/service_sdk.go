@@ -21,15 +21,16 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/splunk/splunk-cloud-sdk-go/util"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/util"
 )
 
 /*
-	TriggerActionWithStatus - Trigger an action and return a TriggerResponse with StatusID
+TriggerActionWithStatus - Trigger an action and return a TriggerResponse with StatusID
 
-	Parameters:
-		actionName: The name of the action, as one or more identifier strings separated by periods. Each identifier string consists of lowercase letters, digits, and underscores, and cannot start with a digit.
-		triggerEvent: The action payload, which must include values for any templated fields.
+Parameters:
+
+	actionName: The name of the action, as one or more identifier strings separated by periods. Each identifier string consists of lowercase letters, digits, and underscores, and cannot start with a digit.
+	triggerEvent: The action payload, which must include values for any templated fields.
 */
 func (s *Service) TriggerActionWithStatus(actionName string, triggerEvent TriggerEvent) (*TriggerResponse, error) {
 	var resp http.Response

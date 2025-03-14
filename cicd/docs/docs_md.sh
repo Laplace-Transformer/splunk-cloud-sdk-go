@@ -11,7 +11,7 @@ mkdir -p docs/pkg
 
 DOC_INDEX="
 
-#  github.com/splunk/splunk-cloud-sdk-go
+#  github.com/Laplace-Transformer/splunk-cloud-sdk-go
 
 ## Packages
 

@@ -26,13 +26,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/splunk/splunk-cloud-sdk-go/services/search"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services/search"
 
-	"github.com/splunk/splunk-cloud-sdk-go/sdk"
-	"github.com/splunk/splunk-cloud-sdk-go/services"
-	"github.com/splunk/splunk-cloud-sdk-go/services/identity"
-	testutils "github.com/splunk/splunk-cloud-sdk-go/test/utils"
-	"github.com/splunk/splunk-cloud-sdk-go/util"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/sdk"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services/identity"
+	testutils "github.com/Laplace-Transformer/splunk-cloud-sdk-go/test/utils"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/util"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

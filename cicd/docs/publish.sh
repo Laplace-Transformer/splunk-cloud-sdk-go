@@ -49,7 +49,7 @@ cd "$(dirname "$0")"
 ####################################################################################################
 rm package.json
 PACKAGE_JSON="{
-    \"name\": \"@splunk/splunk-cloud-sdk-go\",
+    \"name\": \"@Laplace-Transformer/splunk-cloud-sdk-go\",
     \"version\": \"${NEW_VERSION}\",
     \"description\": \"Splunk Cloud SDK for Go\"
 }"

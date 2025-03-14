@@ -23,7 +23,7 @@ import (
 
 	"time"
 
-	"github.com/splunk/splunk-cloud-sdk-go/idp"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/idp"
 )
 
 const (
@@ -35,7 +35,7 @@ const (
 // request, request error received, response received, and max number of retries specified in the config
 type ShouldRetry func(request *Request, reqErr error, response *http.Response, maxRetries uint) bool
 
-//ConfigurableRetryConfig that will accept a user configurable RetryNumber and Interval between retries
+// ConfigurableRetryConfig that will accept a user configurable RetryNumber and Interval between retries
 type ConfigurableRetryConfig struct {
 	// RetryNum defines the number of attempts to retry, if attempts > RetryNum then no more retries are attempted
 	RetryNum uint
@@ -45,7 +45,7 @@ type ConfigurableRetryConfig struct {
 	ShouldRetryFn ShouldRetry
 }
 
-//DefaultRetryConfig that will use a default RetryNumber and a default Interval between retries
+// DefaultRetryConfig that will use a default RetryNumber and a default Interval between retries
 type DefaultRetryConfig struct {
 }
 
@@ -71,7 +71,7 @@ func defaultShouldRetryFn(request *Request, reqErr error, response *http.Respons
 	return false
 }
 
-//RetryStrategyConfig to be specified while creating a NewClient
+// RetryStrategyConfig to be specified while creating a NewClient
 type RetryStrategyConfig struct {
 	DefaultRetryConfig      *DefaultRetryConfig
 	ConfigurableRetryConfig *ConfigurableRetryConfig
@@ -162,7 +162,7 @@ func (configRh ConfigurableRetryResponseHandler) HandleRequestError(client *Base
 	return handleRequestResponse(client, request, err, nil, configRh.ConfigurableRetryConfig.RetryNum, configRh.ConfigurableRetryConfig.Interval, retryFn)
 }
 
-//handleRequestResponse - helper function to handle the retry to a 429 response
+// handleRequestResponse - helper function to handle the retry to a 429 response
 func handleRequestResponse(client *BaseClient, request *Request, reqErr error, response *http.Response, maxRetries uint, interval int, shouldRetry ShouldRetry) (*http.Response, error) {
 	if request == nil {
 		return response, reqErr // can't retry the request without it

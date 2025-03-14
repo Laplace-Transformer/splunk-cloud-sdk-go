@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	model "github.com/splunk/splunk-cloud-sdk-go/services/ingest"
+	model "github.com/Laplace-Transformer/splunk-cloud-sdk-go/services/ingest"
 	"github.com/stretchr/testify/assert"
 
 	"github.com/stretchr/testify/require"

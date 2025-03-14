@@ -5,7 +5,7 @@ package provisioner
 
 import (
 	"github.com/spf13/cobra"
-	impl "github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/pkg/provisioner"
+	impl "github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/pkg/provisioner"
 )
 
 // createInvite -- Creates an invitation for a person to join the tenant using their email address.

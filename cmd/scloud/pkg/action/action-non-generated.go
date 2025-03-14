@@ -1,8 +1,8 @@
 package action
 
 import (
-	"github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/auth"
-	model "github.com/splunk/splunk-cloud-sdk-go/services/action"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/auth"
+	model "github.com/Laplace-Transformer/splunk-cloud-sdk-go/services/action"
 )
 
 // TriggerActionOverride

@@ -18,7 +18,7 @@ fi
 
 set +e
 gotestsum --format short-verbose \
-          -- github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/test \
+          -- github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/test \
           -timeout 10m
 result=$?
 

@@ -42,7 +42,7 @@ i=0
 while [ $i -le 1 ]
 do
 echo "Checking for resources..."
-status=$(curl --head --silent https://github.com/splunk/splunk-cloud-sdk-go/releases/download/${RELEASE_TAG}/scloud_v${SCLOUD_VERSION}_darwin_amd64.tar.gz | head -n 1)
+status=$(curl --head --silent https://github.com/Laplace-Transformer/splunk-cloud-sdk-go/releases/download/${RELEASE_TAG}/scloud_v${SCLOUD_VERSION}_darwin_amd64.tar.gz | head -n 1)
 if [ "$i" -lt 1 ] && echo "$status" | grep -q 404
 then
   echo "Resources hasn't been uploaded"
@@ -60,8 +60,8 @@ fi
 done
 
 # Download Resource
-"$(wget https://github.com/splunk/splunk-cloud-sdk-go/releases/download/${RELEASE_TAG}/scloud_v${SCLOUD_VERSION}_darwin_amd64.tar.gz)"
-"$(wget https://github.com/splunk/splunk-cloud-sdk-go/releases/download/${RELEASE_TAG}/scloud_v${SCLOUD_VERSION}_linux_amd64.tar.gz)"
+"$(wget https://github.com/Laplace-Transformer/splunk-cloud-sdk-go/releases/download/${RELEASE_TAG}/scloud_v${SCLOUD_VERSION}_darwin_amd64.tar.gz)"
+"$(wget https://github.com/Laplace-Transformer/splunk-cloud-sdk-go/releases/download/${RELEASE_TAG}/scloud_v${SCLOUD_VERSION}_linux_amd64.tar.gz)"
 
 MAC_SHA="$(sha256sum -b scloud_v${SCLOUD_VERSION}_darwin_amd64.tar.gz)"
 LINUX_SHA="$(sha256sum -b scloud_v${SCLOUD_VERSION}_linux_amd64.tar.gz)"

@@ -1,19 +1,19 @@
 package sdk
 
 import (
-	"github.com/splunk/splunk-cloud-sdk-go/services"
-	"github.com/splunk/splunk-cloud-sdk-go/services/action"
-	"github.com/splunk/splunk-cloud-sdk-go/services/appregistry"
-	"github.com/splunk/splunk-cloud-sdk-go/services/catalog"
-	"github.com/splunk/splunk-cloud-sdk-go/services/collect"
-	"github.com/splunk/splunk-cloud-sdk-go/services/forwarders"
-	"github.com/splunk/splunk-cloud-sdk-go/services/identity"
-	"github.com/splunk/splunk-cloud-sdk-go/services/ingest"
-	"github.com/splunk/splunk-cloud-sdk-go/services/kvstore"
-	"github.com/splunk/splunk-cloud-sdk-go/services/ml"
-	"github.com/splunk/splunk-cloud-sdk-go/services/provisioner"
-	"github.com/splunk/splunk-cloud-sdk-go/services/search"
-	"github.com/splunk/splunk-cloud-sdk-go/services/streams"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services/action"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services/appregistry"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services/catalog"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services/collect"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services/forwarders"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services/identity"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services/ingest"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services/kvstore"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services/ml"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services/provisioner"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services/search"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services/streams"
 )
 
 // Client to communicate with Splunk Cloud service endpoints

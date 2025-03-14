@@ -6,11 +6,11 @@ import (
 	"os"
 	"strconv"
 
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/jsonx"
+	usageUtil "github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/util"
 	"github.com/mitchellh/go-homedir"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
-	"github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/jsonx"
-	usageUtil "github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/util"
 )
 
 const LegacyCfgFileName = ".scloud"
@@ -129,7 +129,7 @@ var reset = &cobra.Command{
 	},
 }
 
-//   try to use .scloud (without) .toml
+// try to use .scloud (without) .toml
 func Initialize() {
 	// Find home directory.
 	home, err := homedir.Dir()

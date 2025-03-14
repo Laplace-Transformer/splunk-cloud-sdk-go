@@ -28,11 +28,11 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/splunk/splunk-cloud-sdk-go/sdk"
-	"github.com/splunk/splunk-cloud-sdk-go/services"
-	"github.com/splunk/splunk-cloud-sdk-go/services/identity"
-	"github.com/splunk/splunk-cloud-sdk-go/services/search"
-	"github.com/splunk/splunk-cloud-sdk-go/util"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/sdk"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services/identity"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services/search"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/util"
 )
 
 func main() {

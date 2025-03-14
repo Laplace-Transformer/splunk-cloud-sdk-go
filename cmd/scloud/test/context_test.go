@@ -8,9 +8,9 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/auth"
+	utils "github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/test/utils"
 	"github.com/joho/godotenv"
-	"github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/auth"
-	utils "github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/test/utils"
 	"github.com/stretchr/testify/assert"
 )
 

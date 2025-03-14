@@ -20,8 +20,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/splunk/splunk-cloud-sdk-go/services/kvstore"
-	"github.com/splunk/splunk-cloud-sdk-go/util"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services/kvstore"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/util"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -345,11 +345,11 @@ func TestKVStoreCollectionsListRecordsAllParametersSuccess(t *testing.T) {
 	assert.EqualValues(t, recordOne["TEST_KEY_02"].(string), recordsAfterInsert[0]["TEST_KEY_02"])
 }
 
-//--------
-//POST
-//--------
-//There is no separation for the testing the insertion of a record when using an incorrect collections
-//because BOTH are required in order to make a dataset of kvcollection via the catalog service
+// --------
+// POST
+// --------
+// There is no separation for the testing the insertion of a record when using an incorrect collections
+// because BOTH are required in order to make a dataset of kvcollection via the catalog service
 func TestKVStoreCollectionsInsertRecordIntoMissingCollection(t *testing.T) {
 	record := map[string]interface{}{
 		"TEST_KEY_01": "TEST_VALUE_01",

@@ -24,9 +24,9 @@ import (
 
 	"time"
 
-	"github.com/splunk/splunk-cloud-sdk-go/services"
-	"github.com/splunk/splunk-cloud-sdk-go/services/identity"
-	testutils "github.com/splunk/splunk-cloud-sdk-go/test/utils"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services/identity"
+	testutils "github.com/Laplace-Transformer/splunk-cloud-sdk-go/test/utils"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

@@ -3,8 +3,8 @@ package ingest
 ////go:generate scloudgen gen-cmd --name ingest --package ingest --output ingest-gen.go
 
 import (
+	usageUtil "github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/util"
 	"github.com/spf13/cobra"
-	usageUtil "github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/util"
 )
 
 // Cmd -- used to connection to rootCmd

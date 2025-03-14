@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	utils "github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/test/utils"
+	utils "github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/test/utils"
 	"github.com/stretchr/testify/assert"
 )
 

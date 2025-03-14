@@ -5,7 +5,7 @@ package ingest
 
 import (
 	"github.com/spf13/cobra"
-	impl "github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/pkg/ingest"
+	impl "github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/pkg/ingest"
 )
 
 // deleteAllCollectorTokens -- Delete All dsphec tokens for a given tenant.

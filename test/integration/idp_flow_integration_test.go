@@ -21,21 +21,21 @@ import (
 	"os"
 	"strings"
 
-	"github.com/splunk/splunk-cloud-sdk-go/sdk"
-	"github.com/splunk/splunk-cloud-sdk-go/services"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/sdk"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services"
 
 	"testing"
 
-	"github.com/splunk/splunk-cloud-sdk-go/idp"
-	"github.com/splunk/splunk-cloud-sdk-go/services/identity"
-	"github.com/splunk/splunk-cloud-sdk-go/services/ingest"
-	testutils "github.com/splunk/splunk-cloud-sdk-go/test/utils"
-	"github.com/splunk/splunk-cloud-sdk-go/util"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/idp"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services/identity"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services/ingest"
+	testutils "github.com/Laplace-Transformer/splunk-cloud-sdk-go/test/utils"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/util"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
 
-//Tenantscoped host
+// Tenantscoped host
 var IdpHostTenantScoped = os.Getenv("IDP_HOST_TENANT_SCOPED")
 
 // NativeClientID - App Registry Client Id for SDK Native App

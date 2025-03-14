@@ -3,7 +3,7 @@ package test
 import (
 	"testing"
 
-	test_engine "github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/test/utils"
+	test_engine "github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/test/utils"
 )
 
 func TestCli_action(t *testing.T) {

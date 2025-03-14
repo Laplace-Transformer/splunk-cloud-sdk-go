@@ -7,10 +7,10 @@ import (
 	"fmt"
 
 	"github.com/spf13/cobra"
-	"github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/auth"
-	"github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/flags"
-	"github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/jsonx"
-	model "github.com/splunk/splunk-cloud-sdk-go/services/collect"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/auth"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/flags"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/jsonx"
+	model "github.com/Laplace-Transformer/splunk-cloud-sdk-go/services/collect"
 )
 
 // CreateExecution Creates an execution for a scheduled job based on the job ID.

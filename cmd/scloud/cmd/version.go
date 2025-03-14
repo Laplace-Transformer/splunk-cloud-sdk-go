@@ -3,9 +3,9 @@ package cmd
 import (
 	"fmt"
 
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/cmd/scloud/version"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/jsonx"
 	"github.com/spf13/cobra"
-	"github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/cmd/scloud/version"
-	"github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/jsonx"
 )
 
 // versionCmd represents the version command

@@ -6,7 +6,7 @@
 
 NON_VENDOR_GO_FILES:=$(shell find . -type f -name '*.go' -not -path "./vendor/*" -not -name "version.go" -not -name "statik.go")
 
-SCLOUD_SRC_PATH:=github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/cmd
+SCLOUD_SRC_PATH:=github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/cmd
 
 setup: prereqs scloud_version
 

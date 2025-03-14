@@ -5,7 +5,7 @@ package streams
 
 import (
 	"github.com/spf13/cobra"
-	impl "github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/pkg/streams"
+	impl "github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/pkg/streams"
 )
 
 // activatePipeline -- Activates an existing pipeline.

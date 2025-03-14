@@ -5,7 +5,7 @@ package action
 
 import (
 	"github.com/spf13/cobra"
-	impl "github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/pkg/action"
+	impl "github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/pkg/action"
 )
 
 // createActionEmailAction -- Creates an action template.

@@ -3,10 +3,10 @@ package context
 import (
 	"fmt"
 
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/auth"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/jsonx"
+	usageUtil "github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/util"
 	"github.com/spf13/cobra"
-	"github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/auth"
-	"github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/jsonx"
-	usageUtil "github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/util"
 	"github.com/thoas/go-funk"
 )
 

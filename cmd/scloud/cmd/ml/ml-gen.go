@@ -5,7 +5,7 @@ package ml
 
 import (
 	"github.com/spf13/cobra"
-	impl "github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/pkg/ml"
+	impl "github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/pkg/ml"
 )
 
 // createWorkflow -- Creates a workflow configuration.

@@ -5,7 +5,7 @@ package identity
 
 import (
 	"github.com/spf13/cobra"
-	impl "github.com/splunk/splunk-cloud-sdk-go/cmd/scloud/pkg/identity"
+	impl "github.com/Laplace-Transformer/splunk-cloud-sdk-go/cmd/scloud/pkg/identity"
 )
 
 // addGroupMember -- Adds a member to a given group.

@@ -22,11 +22,11 @@ import (
 	"net/url"
 	"testing"
 
-	"github.com/splunk/splunk-cloud-sdk-go/sdk"
-	"github.com/splunk/splunk-cloud-sdk-go/services/catalog"
-	"github.com/splunk/splunk-cloud-sdk-go/services/search"
-	testutils "github.com/splunk/splunk-cloud-sdk-go/test/utils"
-	"github.com/splunk/splunk-cloud-sdk-go/util"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/sdk"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services/catalog"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/services/search"
+	testutils "github.com/Laplace-Transformer/splunk-cloud-sdk-go/test/utils"
+	"github.com/Laplace-Transformer/splunk-cloud-sdk-go/util"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -243,7 +243,6 @@ func TestCreateIndexDataset(t *testing.T) {
 	require.Equal(t, catalog.IndexDatasetKindIndex, indexds.IndexDataset().Kind)
 }
 
-//
 // Test CreateImportDataset
 func TestCreateImportDataset(t *testing.T) {
 	indexds, err := createIndexDataset(t, makeDSName("crix2"))
@@ -280,7 +279,6 @@ func TestCreateDatasetImport(t *testing.T) {
 	assert.NotNil(t, ids)
 }
 
-//
 // Test CreateKVCollectionDataset
 func TestKVCollectionDataset(t *testing.T) {
 	kvds, err := createKVCollectionDataset(t, makeDSName("crkv"))
@@ -399,7 +397,7 @@ func TestListDatasetsCount(t *testing.T) {
 	require.Equal(t, 3, len(datasets))
 }
 
-//Test TestListDatasetsOrderBy
+// Test TestListDatasetsOrderBy
 func TestListDatasetsOrderBy(t *testing.T) {
 	ds, err := createLookupDataset(t, makeDSName("orby"))
 	require.NoError(t, err)
