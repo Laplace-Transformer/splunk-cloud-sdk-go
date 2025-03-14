@@ -28,6 +28,7 @@ import (
 
 	"github.com/splunk/go-dependencies/services"
 	"github.com/splunk/go-dependencies/util"
+	"fmt"
 )
 
 const serviceCluster = "api"
@@ -122,6 +123,7 @@ func (s *Service) CreateJob(searchJob SearchJob, resp ...*http.Response) (*Searc
 		return nil, err
 	}
 	var rb SearchJob
+	fmt.Println("response body: \n", response)
 	err = util.ParseResponse(&rb, response)
 	return &rb, err
 }
