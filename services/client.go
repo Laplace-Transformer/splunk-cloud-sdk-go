@@ -392,7 +392,7 @@ func (c *BaseClient) DoRequest(requestParams gdepservices.RequestParams) (*http.
 			}
 			buffer = bytes.NewBuffer(content)
 		}
-		request, err = c.NewRequest(requestParams.Method, requestParams.URL.String(), buffer, requestParams.Headers)
+		request, err = c.NewRequest(requestParams.Method, requestParams.URL.String()+"?output_mode=json", buffer, requestParams.Headers)
 		if err != nil {
 			return nil, err
 		}
