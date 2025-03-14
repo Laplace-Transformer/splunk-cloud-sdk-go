@@ -24,11 +24,13 @@
 package search
 
 import (
+	"io"
 	"net/http"
+
+	"fmt"
 
 	"github.com/splunk/go-dependencies/services"
 	"github.com/splunk/go-dependencies/util"
-	"fmt"
 )
 
 const serviceCluster = "api"
@@ -41,11 +43,12 @@ func NewService(iClient services.IClient) *Service {
 }
 
 /*
-	CreateDataset - search service endpoint
-	Creates a dataset.
-	Parameters:
-		datasetPost
-		resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
+CreateDataset - search service endpoint
+Creates a dataset.
+Parameters:
+
+	datasetPost
+	resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
 */
 func (s *Service) CreateDataset(datasetPost DatasetPost, resp ...*http.Response) (*Dataset, error) {
 	u, err := s.Client.BuildURLFromPathParams(nil, serviceCluster, `/search/v2/datasets`, nil)
@@ -70,11 +73,12 @@ func (s *Service) CreateDataset(datasetPost DatasetPost, resp ...*http.Response)
 }
 
 /*
-	CreateFederatedConnection - search service endpoint
-	Creates a new federated connection with information about how to connect to a remote index.
-	Parameters:
-		federatedConnectionInput
-		resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
+CreateFederatedConnection - search service endpoint
+Creates a new federated connection with information about how to connect to a remote index.
+Parameters:
+
+	federatedConnectionInput
+	resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
 */
 func (s *Service) CreateFederatedConnection(federatedConnectionInput FederatedConnectionInput, resp ...*http.Response) (*FederatedConnection, error) {
 	u, err := s.Client.BuildURLFromPathParams(nil, serviceCluster, `/search/v2/connections`, nil)
@@ -99,11 +103,12 @@ func (s *Service) CreateFederatedConnection(federatedConnectionInput FederatedCo
 }
 
 /*
-	CreateJob - search service endpoint
-	Creates a search job.
-	Parameters:
-		searchJob
-		resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
+CreateJob - search service endpoint
+Creates a search job.
+Parameters:
+
+	searchJob
+	resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
 */
 func (s *Service) CreateJob(searchJob SearchJob, resp ...*http.Response) (*SearchJob, error) {
 	u, err := s.Client.BuildURLFromPathParams(nil, serviceCluster, `/search/v2/jobs`, nil)
@@ -123,17 +128,22 @@ func (s *Service) CreateJob(searchJob SearchJob, resp ...*http.Response) (*Searc
 		return nil, err
 	}
 	var rb SearchJob
-	fmt.Println("response body: \n", response)
+	b, err := io.ReadAll(response.Body)
+	if err != nil {
+		fmt.Println("error reading response body: ", err)
+	}
+	fmt.Println("response body: \n", b)
 	err = util.ParseResponse(&rb, response)
 	return &rb, err
 }
 
 /*
-	DeleteDatasetById - search service endpoint
-	Deletes a dataset with a specified dataset ID (datasetid).
-	Parameters:
-		datasetid: The dataset ID.
-		resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
+DeleteDatasetById - search service endpoint
+Deletes a dataset with a specified dataset ID (datasetid).
+Parameters:
+
+	datasetid: The dataset ID.
+	resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
 */
 func (s *Service) DeleteDatasetById(datasetid string, resp ...*http.Response) error {
 	pp := struct {
@@ -158,11 +168,12 @@ func (s *Service) DeleteDatasetById(datasetid string, resp ...*http.Response) er
 }
 
 /*
-	DeleteFederatedConnection - search service endpoint
-	Deletes a federated connection with the specified name (connectionName)
-	Parameters:
-		connectionName: The name of the federated connection.
-		resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
+DeleteFederatedConnection - search service endpoint
+Deletes a federated connection with the specified name (connectionName)
+Parameters:
+
+	connectionName: The name of the federated connection.
+	resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
 */
 func (s *Service) DeleteFederatedConnection(connectionName string, resp ...*http.Response) error {
 	pp := struct {
@@ -187,11 +198,12 @@ func (s *Service) DeleteFederatedConnection(connectionName string, resp ...*http
 }
 
 /*
-	DeleteJob - search service endpoint
-	Creates a search job that deletes events from an index. The events are deleted from the index in the specified module, based on the search criteria as specified by the predicate.
-	Parameters:
-		deleteSearchJob
-		resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
+DeleteJob - search service endpoint
+Creates a search job that deletes events from an index. The events are deleted from the index in the specified module, based on the search criteria as specified by the predicate.
+Parameters:
+
+	deleteSearchJob
+	resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
 */
 func (s *Service) DeleteJob(deleteSearchJob DeleteSearchJob, resp ...*http.Response) (*DeleteSearchJob, error) {
 	u, err := s.Client.BuildURLFromPathParams(nil, serviceCluster, `/search/v2/jobs/delete`, nil)
@@ -216,12 +228,13 @@ func (s *Service) DeleteJob(deleteSearchJob DeleteSearchJob, resp ...*http.Respo
 }
 
 /*
-	ExportResults - search service endpoint
-	Exports the search results for the job with the specified search ID (SID). Export the results as a CSV file or JSON file.
-	Parameters:
-		sid: The search ID.
-		query: a struct pointer of valid query parameters for the endpoint, nil to send no query parameters
-		resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
+ExportResults - search service endpoint
+Exports the search results for the job with the specified search ID (SID). Export the results as a CSV file or JSON file.
+Parameters:
+
+	sid: The search ID.
+	query: a struct pointer of valid query parameters for the endpoint, nil to send no query parameters
+	resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
 */
 func (s *Service) ExportResults(sid string, query *ExportResultsQueryParams, resp ...*http.Response) (*map[string]interface{}, error) {
 	values := util.ParseURLParams(query)
@@ -252,10 +265,11 @@ func (s *Service) ExportResults(sid string, query *ExportResultsQueryParams, res
 }
 
 /*
-	GetAllFederatedConnections - search service endpoint
-	Returns all federated connections.
-	Parameters:
-		resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
+GetAllFederatedConnections - search service endpoint
+Returns all federated connections.
+Parameters:
+
+	resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
 */
 func (s *Service) GetAllFederatedConnections(resp ...*http.Response) (*ListFederatedConnections, error) {
 	u, err := s.Client.BuildURLFromPathParams(nil, serviceCluster, `/search/v2/connections`, nil)
@@ -280,11 +294,12 @@ func (s *Service) GetAllFederatedConnections(resp ...*http.Response) (*ListFeder
 }
 
 /*
-	GetDatasetById - search service endpoint
-	Returns a dataset with a specified dataset ID (datasetid).
-	Parameters:
-		datasetid: The dataset ID.
-		resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
+GetDatasetById - search service endpoint
+Returns a dataset with a specified dataset ID (datasetid).
+Parameters:
+
+	datasetid: The dataset ID.
+	resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
 */
 func (s *Service) GetDatasetById(datasetid string, resp ...*http.Response) (*Dataset, error) {
 	pp := struct {
@@ -314,11 +329,12 @@ func (s *Service) GetDatasetById(datasetid string, resp ...*http.Response) (*Dat
 }
 
 /*
-	GetFederatedConnectionByName - search service endpoint
-	Returns the federated connection with the specified name (connectionName).
-	Parameters:
-		connectionName: The name of the federated connection.
-		resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
+GetFederatedConnectionByName - search service endpoint
+Returns the federated connection with the specified name (connectionName).
+Parameters:
+
+	connectionName: The name of the federated connection.
+	resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
 */
 func (s *Service) GetFederatedConnectionByName(connectionName string, resp ...*http.Response) (*FederatedConnection, error) {
 	pp := struct {
@@ -348,11 +364,12 @@ func (s *Service) GetFederatedConnectionByName(connectionName string, resp ...*h
 }
 
 /*
-	GetJob - search service endpoint
-	Returns the search job with the specified search ID (SID).
-	Parameters:
-		sid: The search ID.
-		resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
+GetJob - search service endpoint
+Returns the search job with the specified search ID (SID).
+Parameters:
+
+	sid: The search ID.
+	resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
 */
 func (s *Service) GetJob(sid string, resp ...*http.Response) (*SearchJob, error) {
 	pp := struct {
@@ -382,10 +399,11 @@ func (s *Service) GetJob(sid string, resp ...*http.Response) (*SearchJob, error)
 }
 
 /*
-	ListDatasets - search service endpoint
-	Returns a list of all datasets.
-	Parameters:
-		resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
+ListDatasets - search service endpoint
+Returns a list of all datasets.
+Parameters:
+
+	resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
 */
 func (s *Service) ListDatasets(resp ...*http.Response) (*ListDatasets, error) {
 	u, err := s.Client.BuildURLFromPathParams(nil, serviceCluster, `/search/v2/datasets`, nil)
@@ -410,12 +428,13 @@ func (s *Service) ListDatasets(resp ...*http.Response) (*ListDatasets, error) {
 }
 
 /*
-	ListEventsSummary - search service endpoint
-	Returns an events summary for search ID (SID) search.
-	Parameters:
-		sid: The search ID.
-		query: a struct pointer of valid query parameters for the endpoint, nil to send no query parameters
-		resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
+ListEventsSummary - search service endpoint
+Returns an events summary for search ID (SID) search.
+Parameters:
+
+	sid: The search ID.
+	query: a struct pointer of valid query parameters for the endpoint, nil to send no query parameters
+	resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
 */
 func (s *Service) ListEventsSummary(sid string, query *ListEventsSummaryQueryParams, resp ...*http.Response) (*ListSearchResultsResponse, error) {
 	values := util.ParseURLParams(query)
@@ -446,12 +465,13 @@ func (s *Service) ListEventsSummary(sid string, query *ListEventsSummaryQueryPar
 }
 
 /*
-	ListFieldsSummary - search service endpoint
-	Returns a fields stats summary of the events to-date, for search ID (SID) search.
-	Parameters:
-		sid: The search ID.
-		query: a struct pointer of valid query parameters for the endpoint, nil to send no query parameters
-		resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
+ListFieldsSummary - search service endpoint
+Returns a fields stats summary of the events to-date, for search ID (SID) search.
+Parameters:
+
+	sid: The search ID.
+	query: a struct pointer of valid query parameters for the endpoint, nil to send no query parameters
+	resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
 */
 func (s *Service) ListFieldsSummary(sid string, query *ListFieldsSummaryQueryParams, resp ...*http.Response) (*FieldsSummary, error) {
 	values := util.ParseURLParams(query)
@@ -482,11 +502,12 @@ func (s *Service) ListFieldsSummary(sid string, query *ListFieldsSummaryQueryPar
 }
 
 /*
-	ListJobs - search service endpoint
-	Returns the matching list of search jobs.
-	Parameters:
-		query: a struct pointer of valid query parameters for the endpoint, nil to send no query parameters
-		resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
+ListJobs - search service endpoint
+Returns the matching list of search jobs.
+Parameters:
+
+	query: a struct pointer of valid query parameters for the endpoint, nil to send no query parameters
+	resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
 */
 func (s *Service) ListJobs(query *ListJobsQueryParams, resp ...*http.Response) ([]SearchJob, error) {
 	values := util.ParseURLParams(query)
@@ -512,12 +533,13 @@ func (s *Service) ListJobs(query *ListJobsQueryParams, resp ...*http.Response) (
 }
 
 /*
-	ListPreviewResults - search service endpoint
-	Returns the preview search results for the job with the specified search ID (SID). Can be used when a job is running to return interim results.
-	Parameters:
-		sid: The search ID.
-		query: a struct pointer of valid query parameters for the endpoint, nil to send no query parameters
-		resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
+ListPreviewResults - search service endpoint
+Returns the preview search results for the job with the specified search ID (SID). Can be used when a job is running to return interim results.
+Parameters:
+
+	sid: The search ID.
+	query: a struct pointer of valid query parameters for the endpoint, nil to send no query parameters
+	resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
 */
 func (s *Service) ListPreviewResults(sid string, query *ListPreviewResultsQueryParams, resp ...*http.Response) (*ListPreviewResultsResponse, error) {
 	values := util.ParseURLParams(query)
@@ -548,12 +570,13 @@ func (s *Service) ListPreviewResults(sid string, query *ListPreviewResultsQueryP
 }
 
 /*
-	ListResults - search service endpoint
-	Returns the search results for the job with the specified search ID (SID).
-	Parameters:
-		sid: The search ID.
-		query: a struct pointer of valid query parameters for the endpoint, nil to send no query parameters
-		resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
+ListResults - search service endpoint
+Returns the search results for the job with the specified search ID (SID).
+Parameters:
+
+	sid: The search ID.
+	query: a struct pointer of valid query parameters for the endpoint, nil to send no query parameters
+	resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
 */
 func (s *Service) ListResults(sid string, query *ListResultsQueryParams, resp ...*http.Response) (*ListSearchResultsResponse, error) {
 	values := util.ParseURLParams(query)
@@ -584,11 +607,12 @@ func (s *Service) ListResults(sid string, query *ListResultsQueryParams, resp ..
 }
 
 /*
-	ListTimeBuckets - search service endpoint
-	Returns the event distribution over time of the untransformed events read to-date, for search ID(SID) search.
-	Parameters:
-		sid: The search ID.
-		resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
+ListTimeBuckets - search service endpoint
+Returns the event distribution over time of the untransformed events read to-date, for search ID(SID) search.
+Parameters:
+
+	sid: The search ID.
+	resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
 */
 func (s *Service) ListTimeBuckets(sid string, resp ...*http.Response) (*TimeBucketsSummary, error) {
 	pp := struct {
@@ -618,12 +642,13 @@ func (s *Service) ListTimeBuckets(sid string, resp ...*http.Response) (*TimeBuck
 }
 
 /*
-	PutFederatedConnectionByName - search service endpoint
-	Creates or updates a federated connection with a specified name (connectionName).
-	Parameters:
-		connectionName: The name of the federated connection.
-		federatedConnectionInput
-		resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
+PutFederatedConnectionByName - search service endpoint
+Creates or updates a federated connection with a specified name (connectionName).
+Parameters:
+
+	connectionName: The name of the federated connection.
+	federatedConnectionInput
+	resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
 */
 func (s *Service) PutFederatedConnectionByName(connectionName string, federatedConnectionInput FederatedConnectionInput, resp ...*http.Response) (*FederatedConnection, error) {
 	pp := struct {
@@ -653,11 +678,12 @@ func (s *Service) PutFederatedConnectionByName(connectionName string, federatedC
 }
 
 /*
-	RefreshFederatedConnection - search service endpoint
-	Refresh a federated connection to fetch new remote indexes and add/delete corresponding federated datasets.
-	Parameters:
-		connectionName: The name of the federated connection.
-		resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
+RefreshFederatedConnection - search service endpoint
+Refresh a federated connection to fetch new remote indexes and add/delete corresponding federated datasets.
+Parameters:
+
+	connectionName: The name of the federated connection.
+	resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
 */
 func (s *Service) RefreshFederatedConnection(connectionName string, resp ...*http.Response) error {
 	pp := struct {
@@ -682,11 +708,12 @@ func (s *Service) RefreshFederatedConnection(connectionName string, resp ...*htt
 }
 
 /*
-	TestFederatedConnection - search service endpoint
-	Test connection with remote EC instance using federated connection parameters.
-	Parameters:
-		connectionName: The name of the federated connection.
-		resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
+TestFederatedConnection - search service endpoint
+Test connection with remote EC instance using federated connection parameters.
+Parameters:
+
+	connectionName: The name of the federated connection.
+	resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
 */
 func (s *Service) TestFederatedConnection(connectionName string, resp ...*http.Response) error {
 	pp := struct {
@@ -711,12 +738,13 @@ func (s *Service) TestFederatedConnection(connectionName string, resp ...*http.R
 }
 
 /*
-	UpdateDatasetById - search service endpoint
-	Modifies a dataset with a specified dataset ID (datasetid).
-	Parameters:
-		datasetid: The dataset ID.
-		datasetPatch
-		resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
+UpdateDatasetById - search service endpoint
+Modifies a dataset with a specified dataset ID (datasetid).
+Parameters:
+
+	datasetid: The dataset ID.
+	datasetPatch
+	resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
 */
 func (s *Service) UpdateDatasetById(datasetid string, datasetPatch DatasetPatch, resp ...*http.Response) (*Dataset, error) {
 	pp := struct {
@@ -746,12 +774,13 @@ func (s *Service) UpdateDatasetById(datasetid string, datasetPatch DatasetPatch,
 }
 
 /*
-	UpdateJob - search service endpoint
-	Updates the search job with the specified search ID (SID) with an action.
-	Parameters:
-		sid: The search ID.
-		updateJob
-		resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
+UpdateJob - search service endpoint
+Updates the search job with the specified search ID (SID) with an action.
+Parameters:
+
+	sid: The search ID.
+	updateJob
+	resp: an optional pointer to a http.Response to be populated by this method. NOTE: only the first resp pointer will be used if multiple are provided
 */
 func (s *Service) UpdateJob(sid string, updateJob UpdateJob, resp ...*http.Response) (*SearchJob, error) {
 	pp := struct {
